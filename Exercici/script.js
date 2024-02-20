@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", main);
 
 function main()
 {
-    // Exercici 1
+    // Exercici 1:
     $("#boto").click(function (e)
     {
         let num = $("#valor");
@@ -47,4 +47,31 @@ function main()
             num.val(null);
         }
     });
+
+    // Exercici 2:
+    $("body > *").each(function ()
+    {
+        // https://stackoverflow.com/questions/5347357/jquery-get-selected-element-tag-name
+        let nom     = jQuery(this).prop("tagName");
+        let altura  = $(this).height();
+        let elem    = $("<div>");
+        elem.text("Etiqueta: "+ nom +" - Altura: "+ altura);
+        $("#res1").append(elem);
+
+        if (nom == "P")
+        {
+            // https://api.jquery.com/find/
+            if ($(this).find("img"))
+            {
+                console.log("Te imatge :/");
+            }
+            else
+            {
+                $(this).height("80px");
+            }
+        }
+    });
+
+    // Exercici 3:
+
 }
